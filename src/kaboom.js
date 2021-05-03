@@ -2164,9 +2164,9 @@ function add(comps) {
 					continue;
 				}
 
-				// TODO: deal with getter / setters
 				// fields
-				this[k] = comp[k];
+				const descriptor = Object.getOwnPropertyDescriptor(comp, k)
+				Object.defineProperty(this, k, descriptor)
 
 			}
 
